@@ -29,7 +29,7 @@
                             <li>
                                 {{-- <a href="login.html"><i class="fa fa-sign-out fa-fw"></i> Logout</a> --}}
                                 <a href="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
-                                document.getElementById('logout-form').submit();">{{ __('Logout') }}</a>
+                                document.getElementById('logout-form').submit();"><i class="fa fa-sign-out fa-fw"></i>{{ __('Logout') }}</a>
 
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-done">
                                     @csrf

@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\PenulisController;
 use Illuminate\Support\Facades\Route;
+use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,3 +22,10 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+
+Route::resource('penulis', PenulisController::class);
+
+// Route::prefix('admin')->middleware(['auth'])->name('admin.')->group(function () {
+//     Route::('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+// });

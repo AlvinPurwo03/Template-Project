@@ -7,7 +7,7 @@
         <meta name="description" content="">
         <meta name="author" content="">
 
-        <title>Dashboard</title>
+        <title>Startmin - Bootstrap Admin Theme</title>
 
         <!-- Bootstrap Core CSS -->
         <link href="{{ asset('admin/css/bootstrap.min.css') }}" rel="stylesheet">
@@ -52,11 +52,39 @@
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-lg-12">
-                            <h1 class="page-header">Selamat Datang di Dashboard</h1>
+                            <h1 class="page-header">Selamat Datang di Penulis</h1>
                         </div>
                     </div>
                     <div class="row">
-                        asdnalsd
+                        <div class="col-lg-12">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    Tambah Data Penulis
+                                </div>
+                                <div class="panel-body">
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <form action="{{ route('penulis.update', $penulis->id) }}" method="POST" role="form" enctype="multipart/form-data">
+                                                @csrf
+                                                @method('PUT')
+                                                <div class="form-group">
+                                                    <label>Nama Penulis</label>
+                                                    <input type="text" class="form-control" name="nama_penulis" placeholder="Nama Penulis">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label>Jenis Kelamin</label>
+                                                    <br>
+                                                    <input type="radio" name="jenis_kelamin" value="Laki-laki"> Laki-laki
+                                                    <input type="radio" name="jenis_kelamin" value="Perempuan"> Perempuan
+                                                </div>
+                                                <a href="{{route('penulis.index')}}"class="btn btn-default">Kembali</a>
+                                                <button type="submit" class="btn btn-default">Edit</button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

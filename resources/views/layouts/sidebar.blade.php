@@ -13,10 +13,10 @@
         <!-- /input-group -->
             </li>
             <li>
-                <a href="index.html" class="active"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
+                <a href="{{ route('home') }}" class="active"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
             </li>
             <li>
-                <a href="tables.html"><i class="fa fa-table fa-fw"></i> Tables</a>
+                <a href="{{ route('penulis.index') }}"><i class="fa fa-table fa-fw"></i> Data Penulis</a>
             </li>
         </ul>
     </div>
