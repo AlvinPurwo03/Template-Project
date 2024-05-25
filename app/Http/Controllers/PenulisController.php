@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Penulis;
+use App\Models\Buku;
 use Illuminate\Http\Request;
 
 class PenulisController extends Controller

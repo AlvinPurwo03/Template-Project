@@ -1,6 +1,9 @@
 <?php
 
+use App\Http\Controllers\BukuController;
 use App\Http\Controllers\PenulisController;
+use App\Models\Penulis;
+use App\Models\Buku;
 use Illuminate\Support\Facades\Route;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
@@ -16,7 +19,9 @@ use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    $penulis = Penulis::all();
+    $buku = Buku::all();
+    return view('welcome', compact('penulis', 'buku'));
 });
 
 Auth::routes();
@@ -25,6 +30,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 
 Route::resource('penulis', PenulisController::class);
+Route::resource('buku', BukuController::class);
 
 // Route::prefix('admin')->middleware(['auth'])->name('admin.')->group(function () {
 //     Route::('/dashboard', [DashboardController::class, 'index'])->name('dashboard');

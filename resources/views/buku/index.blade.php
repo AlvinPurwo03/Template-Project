@@ -7,7 +7,7 @@
         <meta name="description" content="">
         <meta name="author" content="">
 
-        <title>Penulis</title>
+        <title>Buku</title>
 
         <!-- Bootstrap Core CSS -->
         <link href="{{ asset('admin/css/bootstrap.min.css') }}" rel="stylesheet">
@@ -52,19 +52,19 @@
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-lg-12">
-                            <h1 class="page-header">Selamat Datang di Penulis</h1>
+                            <h1 class="page-header">Selamat Datang di Buku</h1>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="panel panel-default">
                                 <div class="panel-heading">
-                                    Tabel Data Penulis
+                                    Tabel Data Buku
                                 </div>
                                 <!-- /.panel-heading -->
                                 <div class="panel-body">
                                     <div class="table-responsive">
-                                        <a href="{{ route('penulis.create') }}" class="btn btn-primary">Tambah</a>
+                                        <a href="{{ route('buku.create') }}" class="btn btn-primary">Tambah</a>
                                         @if (session('success'))
                                             <div class="alert alert-success" role="alert">
                                                 {{ session('success') }}
@@ -74,8 +74,12 @@
                                             <thead>
                                                 <tr>
                                                     <th>No</th>
+                                                    <th>Nama Buku</th>
+                                                    <th>Deskripsi</th>
+                                                    <th>Kategori</th>
+                                                    <th>Tanggal Terbit</th>
                                                     <th>Nama Penulis</th>
-                                                    <th>Jenis Kelamin</th>
+                                                    <th>Cover</th>
                                                     <th>Aksi</th>
                                                 </tr>
                                             </thead>
@@ -83,17 +87,23 @@
                                                 @php
                                                     $no=1;
                                                 @endphp
-                                                @foreach ($penulis as $data)
+                                                @foreach ($buku as $data)
                                                     <tr class="odd gradeX">
                                                         <td>{{ $no++ }}</td>
-                                                        <td>{{ $data->nama_penulis }}</td>
-                                                        <td>{{ $data->jenis_kelamin }}</td>
-                                                        <form action="{{ route('penulis.destroy', $data->id) }}" method="POST">
+                                                        <td>{{ $data->nama_buku }}</td>
+                                                        <td>{{ $data->deskripsi }}</td>
+                                                        <td>{{ $data->kategori }}</td>
+                                                        <td>{{ $data->tanggal_terbit }}</td>
+                                                        <td>{{ $data->penulis->nama_penulis }}</td>
+                                                        <td>
+                                                            <img src="{{ asset('/images/buku/' . $data->cover) }}" width="100">
+                                                        </td>
+                                                        <form action="{{ route('buku.destroy', $data->id) }}" method="POST">
                                                             @csrf
                                                             @method('DELETE')
                                                             <td class="center">
-                                                                <a href="{{ route('penulis.edit', $data->id) }}" class="btn btn-success">Ubah</a>
-                                                                <a href="{{ route('penulis.show', $data->id) }}" class="btn btn-warning">Detail</a>
+                                                                <a href="{{ route('buku.edit', $data->id) }}" class="btn btn-success">Ubah</a>
+                                                                <a href="{{ route('buku.show', $data->id) }}" class="btn btn-warning">Detail</a>
                                                                 <button type="submit" class="btn btn-danger" onclick="return confirm('Apakah Yakin Ingin Menghapus??')">Hapus</button>
                                                             </td>
                                                         </form>

@@ -16,7 +16,10 @@
                 <a href="{{ route('home') }}" class="active"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
             </li>
             <li>
-                <a href="{{ route('penulis.index') }}"><i class="fa fa-table fa-fw"></i> Data Penulis</a>
+                <a href="{{ route('penulis.index') }}" class=""><i class="fa fa-table fa-fw"></i> Data Penulis</a>
+            </li>
+            <li>
+                <a href="{{ route('buku.index') }}" class=""><i class="fa fa-table fa-fw"></i> Data Buku</a>
             </li>
         </ul>
     </div>
